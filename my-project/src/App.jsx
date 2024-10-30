@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div>
-        <p>Last changes with our cute students</p>
+        <p>Even more changes</p>
       </div>
     </>
   )
