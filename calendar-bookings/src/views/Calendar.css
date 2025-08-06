@@ -1,32 +1,29 @@
-.calendar-week {
-  display: grid;
+.week-grid {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  grid-template-columns: repeat(7, 1fr);
 }
 
-@media (max-width: 768px) {
-  .calendar-week {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
-  }
-}
-
-.calendar-day {
-  padding: 0.5rem;
+.day-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #f8f8f8;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 
-.day-label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
+/* Responsive switch */
+@media (min-width: 768px) {
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
 
-.booking {
-  padding: 0.3rem;
-  background-color: #e0f7fa;
-  margin-bottom: 0.3rem;
-  cursor: pointer;
-  border-radius: 4px;
+  .day-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }
