@@ -1,0 +1,66 @@
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Temporal } from "@js-temporal/polyfill";
+
+const BookingDetail = () => {
+	const { stationId, bookingId } = useParams();
+	const [booking, setBooking] = useState(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const fetchBooking = async () => {
+			try {
+				const res = await fetch(
+					`https://605c94c36d85de00170da8b4.mockapi.io/stations/${stationId}/bookings/${bookingId}`
+				);
+				if (!res.ok) throw new Error("Booking not found");
+				const data = await res.json();
+				setBooking(data);
+			} catch (err) {
+				setError("Failed to fetch booking.");
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchBooking();
+	}, [stationId, bookingId]);
+
+	if (loading) return <p>Loading booking...</p>;
+	if (error) return <p>{error}</p>;
+
+	const calculateDuration = (start, end) => {
+		const startDate = Temporal.PlainDate.from(start);
+		const endDate = Temporal.PlainDate.from(end);
+		const duration = endDate.since(startDate, { largestUnit: "days" });
+		return duration.days;
+	};
+
+	return (
+		<>
+			<div>
+				<h2>Booking for {booking.customerName}</h2>
+				<p>
+					<strong>Start Date:</strong>{" "}
+					{new Date(booking.startDate).toLocaleString()}
+				</p>
+				<p>
+					<strong>End Date:</strong>{" "}
+					{new Date(booking.endDate).toLocaleString()}
+				</p>
+				<p>
+					Duration: {calculateDuration(booking.startDate, booking.endDate)} days
+				</p>
+				<p>
+					Pickup in {booking.pickupStation} and return in{" "}
+					{booking.returnStation}
+				</p>
+			</div>
+
+			<Link to="/">Return to the calendar</Link>
+		</>
+	);
+};
+
+export default BookingDetail;

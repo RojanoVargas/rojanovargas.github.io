@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import { useCalendar } from "../hooks/useCalendar";
 import Autocomplete from "../components/Autocomplete";
 import "./Calendar.css";
@@ -61,7 +62,9 @@ function Calendar() {
 			<div className="week-grid">
 				{days.map((day, index) => {
 					const dateForDay = weekDates[index];
-					const formattedDate = `${dateForDay.year}-${String(dateForDay.month).padStart(2, "0")}-${String(dateForDay.day).padStart(2, "0")}`;
+					const formattedDate = `${dateForDay.year}-${String(
+						dateForDay.month
+					).padStart(2, "0")}-${String(dateForDay.day).padStart(2, "0")}`;
 
 					const bookingsOnDay = bookings.filter(
 						(booking) =>
@@ -79,10 +82,17 @@ function Calendar() {
 								{bookingsOnDay.length > 0 ? (
 									<ul>
 										{bookingsOnDay.map((b) => (
-                                            <li key={b.id}>
-                                                Booking #{b.id} <br />
-                                                {new Date(b.startDate).toLocaleDateString('en-GB')} → {new Date(b.endDate).toLocaleDateString('en-GB')}
-                                            </li>
+											<li key={b.id}>
+												<Link
+													to={`/stations/${selectedStation.id}/bookings/${b.id}`}
+												>
+													Booking #{b.id}
+													<br />
+													{new Date(b.startDate).toLocaleDateString(
+														"en-GB"
+													)} → {new Date(b.endDate).toLocaleDateString("en-GB")}
+												</Link>
+											</li>
 										))}
 									</ul>
 								) : (

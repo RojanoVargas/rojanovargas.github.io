@@ -1,11 +1,12 @@
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./router/AppRoutes";
 import "./App.css";
-import Calendar from "./views/Calendar";
 
 function App() {
 	return (
-		<>
-      <Calendar />
-		</>
+		<BrowserRouter>
+			<AppRoutes />
+		</BrowserRouter>
 	);
 }
 
