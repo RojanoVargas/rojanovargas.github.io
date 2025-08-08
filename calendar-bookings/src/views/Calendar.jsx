@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useCalendar } from "../hooks/useCalendar";
 import Autocomplete from "../components/Autocomplete";
 import "./Calendar.css";
+import { FaCaravan } from "react-icons/fa6";
 
 function Calendar() {
 	const date = useCalendar();
@@ -82,21 +83,23 @@ function Calendar() {
 								{bookingsOnDay.length > 0 ? (
 									<ul>
 										{bookingsOnDay.map((b) => (
-											<li key={b.id}>
-												<Link
-													to={`/stations/${selectedStation.id}/bookings/${b.id}`}
-												>
-													Booking #{b.id}
+											<Link
+												key={b.id}
+												to={`/stations/${selectedStation.id}/bookings/${b.id}`}
+												className="booking-link"
+											>
+												<li className="booking-card">
+													🚐 Booking #{b.id}
 													<br />
 													{new Date(b.startDate).toLocaleDateString(
 														"en-GB"
 													)} → {new Date(b.endDate).toLocaleDateString("en-GB")}
-												</Link>
-											</li>
+												</li>
+											</Link>
 										))}
 									</ul>
 								) : (
-									"No booking"
+									<>No bookings</>
 								)}
 							</div>
 						</div>
