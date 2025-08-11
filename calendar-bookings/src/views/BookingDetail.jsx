@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Temporal } from "@js-temporal/polyfill";
+import "./BookingDetail.css"
 
 const BookingDetail = () => {
 	const { stationId, bookingId } = useParams();
@@ -27,7 +28,17 @@ const BookingDetail = () => {
 		fetchBooking();
 	}, [stationId, bookingId]);
 
-	if (loading) return <p>Loading booking...</p>;
+	if (loading)
+		return (
+			<div className="loading-container">
+				<img
+					src="/loading-car.png"
+					alt="Loading..."
+					className="loading-image"
+				/>
+				<p>Loading booking...</p>
+			</div>
+		);
 	if (error) return <p>{error}</p>;
 
 	const calculateDuration = (start, end) => {
@@ -40,6 +51,7 @@ const BookingDetail = () => {
 	return (
 		<>
 			<div>
+				<img src="/loading-car.png" className="van-image" alt="loading van" />
 				<h2>Booking for {booking.customerName}</h2>
 				<p>
 					<strong>Start Date:</strong>{" "}

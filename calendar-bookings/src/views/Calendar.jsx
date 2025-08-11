@@ -99,7 +99,7 @@ function Calendar() {
 										))}
 									</ul>
 								) : (
-									<>No bookings</>
+									<div className="no-booking">No bookings</div>
 								)}
 							</div>
 						</div>
@@ -108,11 +108,13 @@ function Calendar() {
 			</div>
 			<div className="week-controls">
 				<button onClick={() => setWeekOffset((prev) => prev - 1)}>
-					← Previous Week
+					<span>←</span>
+					<span className="button-text">Previous Week</span>
 				</button>
 				<button onClick={() => setWeekOffset(0)}>Today</button>
 				<button onClick={() => setWeekOffset((prev) => prev + 1)}>
-					Next Week →
+					<span className="button-text">Next Week</span>
+					<span>→</span>
 				</button>
 			</div>
 		</>

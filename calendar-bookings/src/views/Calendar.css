@@ -14,25 +14,42 @@
 	padding: 1rem;
 	border-radius: 0.5rem;
 	background-color: var(--primary-light);
+	min-width: 220px;
+	min-height: 205px;
+
+	@media (min-width: 1024px) {
+		margin: 0;
+	}
 }
 
 .booking-card {
 	color: var(--primary-light);
-    border: 1px solid var(--primary-blue);
-    list-style: none;
-    padding: 1.2em;
-    border-radius: 1em;
-    background-color: var(--primary-blue);
-    box-shadow: 0 4px 6px -1px rgba(107, 187, 174, 0.3),
-        0 2px 4px -1px rgba(107, 187, 174, 0.2);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	border: 1px solid var(--primary-blue);
+	list-style: none;
+	padding: 1.4em 0.5em;
+	margin-left: 2em;
+	border-radius: 1em;
+	background-color: var(--primary-blue);
+	box-shadow: 0 4px 6px -1px rgba(107, 187, 174, 0.3),
+		0 2px 4px -1px rgba(107, 187, 174, 0.2);
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+	@media (min-width: 1024px) {
+		padding: 1.2em;
+	}
 }
 
 .booking-card:hover {
 	background-color: var(--primary-blue-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 16px -4px rgba(107, 187, 174, 0.4), 
-              0 4px 6px -2px rgba(107, 187, 174, 0.25);
+	transform: translateY(-2px);
+	box-shadow: 0 10px 16px -4px rgba(107, 187, 174, 0.4),
+		0 4px 6px -2px rgba(107, 187, 174, 0.25);
+}
+
+.no-booking {
+	color: #ef0a0a;
+	margin: 1.2em;
+	font-style: italic;
 }
 
 /* Responsive switch */
@@ -66,4 +83,12 @@
 .week-controls button:hover {
 	background-color: var(--primary-blue-hover);
 	border-color: var(--primary-blue-hover);
+}
+
+.button-text {
+	display: none;
+
+	@media (min-width: 1024px) {
+		display: inline;
+	}
 }
