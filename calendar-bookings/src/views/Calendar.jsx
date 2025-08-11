@@ -59,7 +59,13 @@ function Calendar() {
 
 	return (
 		<>
-			<Autocomplete onSelectStation={setSelectedStation} />
+			<div className="hero-section">
+				<div className="hero-content">
+					<h1>Bookings overview</h1>
+					<Autocomplete onSelectStation={setSelectedStation} />
+				</div>
+			</div>
+
 			<div className="week-grid">
 				{days.map((day, index) => {
 					const dateForDay = weekDates[index];
@@ -109,11 +115,11 @@ function Calendar() {
 			<div className="week-controls">
 				<button onClick={() => setWeekOffset((prev) => prev - 1)}>
 					<span>←</span>
-					<span className="button-text">Previous Week</span>
+					<span className="button-text"> Previous Week</span>
 				</button>
 				<button onClick={() => setWeekOffset(0)}>Today</button>
 				<button onClick={() => setWeekOffset((prev) => prev + 1)}>
-					<span className="button-text">Next Week</span>
+					<span className="button-text">Next Week </span>
 					<span>→</span>
 				</button>
 			</div>

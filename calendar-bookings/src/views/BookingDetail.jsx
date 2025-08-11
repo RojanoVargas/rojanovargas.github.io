@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Temporal } from "@js-temporal/polyfill";
-import "./BookingDetail.css"
+import "./BookingDetail.css";
 
 const BookingDetail = () => {
 	const { stationId, bookingId } = useParams();
@@ -50,7 +50,14 @@ const BookingDetail = () => {
 
 	return (
 		<>
-			<div>
+			<div className="banner-container">
+				<img
+					src="/welcome-banner.jpg"
+					alt="Welcome banner"
+					className="welcome-banner"
+				/>
+			</div>
+			<div className="booking-text">
 				<img src="/loading-car.png" className="van-image" alt="loading van" />
 				<h2>Booking for {booking.customerName}</h2>
 				<p>
@@ -70,7 +77,7 @@ const BookingDetail = () => {
 				</p>
 			</div>
 
-			<Link to="/">Return to the calendar</Link>
+			<Link className="btn-return" to="/">Return to the calendar</Link>
 		</>
 	);
 };
