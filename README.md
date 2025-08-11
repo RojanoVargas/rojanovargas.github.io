@@ -1,6 +1,6 @@
 # Coding Challenge Calendar Bookings
 
-- 👉 [Published Web App](https://rojanovargas.github.io/)
+- [Published Web App](https://rojanovargas.github.io/)
 
 <p>
   <img src="./calendar-bookings/public/roadsurfer-favicon.png" alt="Van Logo" width="32" style="margin-right: 10px;">
@@ -64,6 +64,6 @@ A potential improvement beyond the current MVP would be to implement drag-and-dr
 5. Success: Update local state → refresh calendar data
 6. Error: Revert UI changes → show error message
 
-*Thank you for taking the time to read until here and review my code ❤️*
+*Thank you for taking the time to read until here and reviewing my code*
 
 **Eloy RV 🚐**
