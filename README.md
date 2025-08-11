@@ -1,6 +1,6 @@
 # Coding Challenge Calendar Bookings
 
-- [Published Web App](https://rojanovargas.github.io/)
+- 👉 [Published Web App](https://rojanovargas.github.io/)
 
 <p>
   <img src="./calendar-bookings/public/roadsurfer-favicon.png" alt="Van Logo" width="32" style="margin-right: 10px;">
