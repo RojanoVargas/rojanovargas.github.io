@@ -9,10 +9,13 @@ const BookingDetail = () => {
 	const [booking, setBooking] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-	
-	const contextMessage = useContext(AppContext)
-	console.log(contextMessage)
-	
+
+	const contextMessage = useContext(AppContext);
+
+	useEffect(() => {
+		console.log(contextMessage);
+	}, [contextMessage]);
+
 	useEffect(() => {
 		const fetchBooking = async () => {
 			try {
@@ -52,7 +55,6 @@ const BookingDetail = () => {
 		return duration.days;
 	};
 
-
 	return (
 		<>
 			<div className="banner-container">
@@ -82,7 +84,9 @@ const BookingDetail = () => {
 				</p>
 			</div>
 
-			<Link className="btn-return" to="/">Return to the calendar</Link>
+			<Link className="btn-return" to="/">
+				Return to the calendar
+			</Link>
 		</>
 	);
 };

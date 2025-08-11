@@ -9,5 +9,6 @@
 	align-content: center;
   align-items: center;
   justify-content: center;
-  min-height: 80dvh;
+  /* min-height: 80dvh; */
+  /* margin-top: 0; */
 }

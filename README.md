@@ -39,3 +39,29 @@ _AI tools were used as coding assistants to enhance productivity while maintaini
 - **useCalendar Hook** - Temporal API integration and date calculations
 
 All components tested with user interactions, API mocking, and error handling using Vitest + React Testing Library
+
+### State Management
+
+Since the logic of the application could be managed without state management, the infrastructure has been created with the idea of escalating in the future. Currently it creates a message in AppContext.jsx that is then console logged in BookingDetail. Potential future uses:
+
+- User Management
+- Dark mode UI
+- Language settings
+- Etc.
+
+### Reschedule Booking (theoretical overview)
+
+A potential improvement beyond the current MVP would be to implement drag-and-drop functionality for station employees to reschedule bookings.
+
+**Frontend Implementation:**
+
+1. Drag booking card → capture booking data
+2. Drop on target day → validate new date (`.day-group` would become drop zones)
+3. Show loading state → disable further interactions
+4. API call → PUT /api/bookings/{id}/reschedule
+5. Success: Update local state → refresh calendar data
+6. Error: Revert UI changes → show error message
+
+*Thank you for taking the time to read until here and review my code.*
+
+**Eloy RV**
