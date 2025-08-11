@@ -66,7 +66,7 @@ function Calendar() {
 				</div>
 			</div>
 
-			<div className="week-grid">
+			<div className="week-grid" key={weekOffset}>
 				{days.map((day, index) => {
 					const dateForDay = weekDates[index];
 					const formattedDate = `${dateForDay.year}-${String(

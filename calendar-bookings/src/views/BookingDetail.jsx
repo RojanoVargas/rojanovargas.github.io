@@ -1,14 +1,18 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Temporal } from "@js-temporal/polyfill";
 import "./BookingDetail.css";
+import { AppContext } from "../context/AppContext";
 
 const BookingDetail = () => {
 	const { stationId, bookingId } = useParams();
 	const [booking, setBooking] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-
+	
+	const contextMessage = useContext(AppContext)
+	console.log(contextMessage)
+	
 	useEffect(() => {
 		const fetchBooking = async () => {
 			try {
@@ -19,7 +23,7 @@ const BookingDetail = () => {
 				const data = await res.json();
 				setBooking(data);
 			} catch (err) {
-				setError("Failed to fetch booking.");
+				setError(`Failed to fetch booking: ${err.message}`);
 			} finally {
 				setLoading(false);
 			}
@@ -47,6 +51,7 @@ const BookingDetail = () => {
 		const duration = endDate.since(startDate, { largestUnit: "days" });
 		return duration.days;
 	};
+
 
 	return (
 		<>
