@@ -1,12 +1,14 @@
 # Coding Challenge Calendar Bookings
 
+- [Published Web App](https://rojanovargas.github.io/)
+
 <p>
   <img src="./calendar-bookings/public/roadsurfer-favicon.png" alt="Van Logo" width="32" style="margin-right: 10px;">
   <img src="https://react.dev/favicon-32x32.png" alt="React Logo" width="32" style="margin-right: 10px;">
   <img src="https://vitejs.dev/logo-with-shadow.png" alt="Vite Logo" width="32">
 </p>
 
-Documenting the challenge process and deployment
+Documenting the challenge process
 
 ## Resources:
 
